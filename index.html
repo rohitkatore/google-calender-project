@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Calendar Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Google Calendar Integration</h1>
+            <p>Connect your Google Calendar to view and manage events</p>
+        </header>
+
+        <main>
+            <div class="connection-section">
+                <button id="connectBtn" class="connect-btn">Connect to Google Calendar</button>
+                <button id="disconnectBtn" class="disconnect-btn" style="display:none;">Disconnect</button>
+            </div>
+
+            <div id="userDataSection" class="data-section" style="display:none;">
+                <h2>Connected User</h2>
+                <div id="userData" class="data-container"></div>
+            </div>
+
+            <div id="addEventSection" class="add-event-section" style="display:none;">
+                <h2>Create Event</h2>
+                <button id="toggleFormBtn" class="add-event-btn">+ Add Event</button>
+                
+                <form id="eventForm" class="event-form" style="display:none;">
+                    <div class="form-group">
+                        <label for="eventTitle">Title *</label>
+                        <input type="text" id="eventTitle" required placeholder="Event title">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventStartDate">Start Date *</label>
+                            <input type="date" id="eventStartDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventStartTime">Start Time *</label>
+                            <input type="time" id="eventStartTime" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventEndDate">End Date *</label>
+                            <input type="date" id="eventEndDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventEndTime">End Time *</label>
+                            <input type="time" id="eventEndTime" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" rows="3" placeholder="Optional"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventLocation">Location</label>
+                        <input type="text" id="eventLocation" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventAttendees">Attendees (comma-separated)</label>
+                        <input type="text" id="eventAttendees" placeholder="email1@example.com, email2@example.com">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Create Event</button>
+                        <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+                
+                <div id="successMessage" class="success-message" style="display:none;">
+                    <p>✓ Event created successfully!</p>
+                </div>
+            </div>
+
+            <div id="eventsSection" class="events-section" style="display:none;">
+                <h2>Upcoming Events</h2>
+                <div class="events-controls">
+                    <button id="refreshBtn" class="refresh-btn">Refresh</button>
+                </div>
+                <div id="eventsList" class="events-container"></div>
+            </div>
+
+            <div id="errorSection" class="error-section" style="display:none;">
+                <h3>Error</h3>
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
